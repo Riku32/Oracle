@@ -1,0 +1,19 @@
+{
+  "name": "oracle",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@tensorflow/tfjs": "^2.0.0",
+    "@tensorflow/tfjs-node": "^2.0.0",
+    "@types/node": "^14.0.9",
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "file-type": "^14.5.0",
+    "form-data": "^3.0.0",
+    "nsfwjs": "^2.2.0",
+    "request": "^2.88.2"
+  }
+}
