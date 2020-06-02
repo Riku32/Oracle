@@ -20,6 +20,8 @@ client.on('ready', () => {
     detector = new Detector("file://./model/")
     detector.init()
 
+    client.user.setActivity("Sinful content", {type: "WATCHING"})
+
     logchannel = client.channels.cache.get(process.env.logchannel)
 })
 
