@@ -11,7 +11,7 @@ export class Detector {
     }
 
     async init() {
-        this.model = await nsfw.load()
+        this.model = await nsfw.load(this.modelURL, { size: 299 })
         return
     }
 

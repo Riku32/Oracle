@@ -3,9 +3,7 @@ const Discord = require('discord.js')
 const FileType = require('file-type')
 const got = require('got')
 const fetch = require('node-fetch')
-const request = require('request').defaults({ encoding: null })
 import { Detector } from './utils/detect'
-import * as fs from 'fs'
 import { Log } from './utils/log'
 import { File } from './utils/file'
 
@@ -47,13 +45,12 @@ async function scan(link: string, msg: any) {
 
     if (["image/png", "image/jpeg", "image/bmp"].includes(mime)) {
         const response = await detector.predict(pic)
-        if (["Hentai", "Porn"].includes(response[0].className)) {
+        if (["Hentai", "Porn"].includes(response[0].className) && response[0].probability > 0.85) {
             const embed = new Discord.MessageEmbed()
                 .setImage(await betterUpl(link))
-                .setDescription(`**User:** <@${msg.author.id}> (${msg.author.id})\n**Channel: <#${msg.channel.id}>**\n**Classification:** ${response[0].className}`)
+                .setDescription(`**User:** ${msg.author.tag} (${msg.author.id})\n**Channel: <#${msg.channel.id}>**\n**Classification:** ${response[0].className}`)
                 .setColor(process.env.color)
                 .setTimestamp()
-
 
             logchannel.send(embed)
             msg.delete()
