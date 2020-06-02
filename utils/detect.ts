@@ -16,10 +16,10 @@ export class Detector {
     }
 
     ready() {
-        if (this.model) {
+        if (this.model != undefined) {
             return true
         }
-        
+
         return false
     }
 
